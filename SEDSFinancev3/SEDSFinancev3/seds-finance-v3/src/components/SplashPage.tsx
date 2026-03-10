@@ -1,41 +1,62 @@
 import React from 'react';
-import TopBar from './TopBar';
 import { useNavigate } from "react-router-dom";
-
+import jupiter from '../assets/jupiter.png';
+import bg from '../assets/earth-background.jpg';
 const SplashPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full bg-[#3d3f49] text-white flex flex-col">
-      <TopBar username="" directory=""/>
-      <main className="flex-grow flex flex-col lg:flex-row items-center justify-center px-6 py-10 gap-10">
-        <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <h1 className="text-center text-4xl lg:text-5xl font-bold mb-6">
-            NU SEDS Finance System
-          </h1>
-          <p className="text-center text-gray-300 text-lg mb-8">
-            Make Your Projects Possible!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              className="bg-indigo-500 text-white px-6 py-3 rounded hover:bg-indigo-600 transition"
-              onClick={() => navigate("/expenses")}
-            >
-              Sign In
-            </button>
-            <button className="bg-gray-800 text-indigo-400 border border-indigo-500 px-6 py-3 rounded hover:bg-gray-700 transition">
-              Create Account
-            </button>
-          </div>
-        </div>
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <img
-            src="/splash-image.png"
-            alt="Splash"
-            className="max-w-full h-auto rounded-lg shadow-lg border border-gray-700"
-          />
+    <div
+      className="h-screen w-full text-white relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${bg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        fontFamily: "'Exo 2', sans-serif"
+      }}
+    >
+
+      {/* Top-left logo */}
+      <div className="absolute top-4 left-4 z-10">
+        <img src="/seds-logo.png" alt="NU SEDS Logo" className="h-30 w-auto" />
+      </div>
+
+      {/* Planet image - right side */}
+      {/*<div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-end">
+        <img
+          src={jupiter}
+          alt="Planet"
+          className="h-full object-cover"
+        />
+      </div>*/}
+
+      {/* Dark overlay panel - left side */}
+      <div className="absolute inset-y-0 left-0 w-8/10" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.95), transparent)' }} />
+
+      {/* Main content - left side */}
+      <main className="absolute inset-0 flex flex-col justify-center px-16 w-full lg:w-1/2">
+        <h1 className="font-bold text-blue-500 mb-0 leading-none" style={{ fontSize: '10rem' }}>NU SEDS</h1>
+        <h2 className="font-semibold text-red-500 mb-10 text-8xl leading-none">Finance System</h2>
+        <p className="text-5xl italic mb-15" style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 550, letterSpacing: '0.1em' }}>
+          Build beyond limits
+        </p>
+
+        <div className="flex flex-col gap-4 w-200">
+          <button
+            className="border border-white text-white text-4xl px-16 py-10 rounded hover:bg-white hover:text-black transition"
+            onClick={() => navigate("/sign-in")}
+          >
+            Sign In
+          </button>
+          <button
+            className="border border-white text-white text-4xl px-16 py-10 rounded hover:bg-white hover:text-black transition"
+            onClick={() => navigate("/create-account")}
+          >
+            Create Account
+          </button>
         </div>
       </main>
+
     </div>
   );
 };
