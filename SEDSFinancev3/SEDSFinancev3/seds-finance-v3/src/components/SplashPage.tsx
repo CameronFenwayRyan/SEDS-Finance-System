@@ -21,15 +21,6 @@ const SplashPage: React.FC = () => {
         <img src="/seds-logo.png" alt="NU SEDS Logo" className="h-30 w-auto" />
       </div>
 
-      {/* Planet image - right side */}
-      {/*<div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-end">
-        <img
-          src={jupiter}
-          alt="Planet"
-          className="h-full object-cover"
-        />
-      </div>*/}
-
       {/* Dark overlay panel - left side */}
       <div className="absolute inset-y-0 left-0 w-8/10" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.95), transparent)' }} />
 
